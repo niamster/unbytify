@@ -1,3 +1,12 @@
+[![Crates.io](https://img.shields.io/crates/v/unbytify.svg)](https://crates.io/crates/unbytify)
+[![Docs.rs](https://docs.rs/unbytify/badge.svg)](https://docs.rs/unbytify)
+[![Linux Build Status](https://travis-ci.org/niamster/unbytify.svg?branch=master)](https://travis-ci.org/niamster/unbytify)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/ljd6pkh8fsx7oh7a/branch/master?svg=true)](https://ci.appveyor.com/project/niamster/unbytify)
+[![Codecov](https://codecov.io/gh/niamster/unbytify/branch/master/graph/badge.svg)](https://codecov.io/gh/niamster/unbytify)
+[![Coveralls](https://coveralls.io/repos/github/niamster/unbytify/badge.svg?branch=master)](https://coveralls.io/github/niamster/unbytify?branch=master)
+[![License](https://img.shields.io/crates/l/unbytify.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
 # Unbytify - [Rust][rust] library to parse and represent digital units
 
 ### Table of Contents

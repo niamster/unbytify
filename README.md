@@ -18,7 +18,7 @@ Sometimes people call this humanization.
 
 In Cargo.toml:
 
-```
+```toml
 [dependencies]
 unbytify = "0.1"
 ```
@@ -27,7 +27,7 @@ unbytify = "0.1"
 
 In your `main.rs`:
 
-```
+```rust
 extern crate unbytify;
 use unbytify::*;
 
@@ -45,3 +45,5 @@ Check it out on [docs.rs/unbytify](https://docs.rs/unbytify).
 
 ### License
 Unbytify project is licensed under Apache-2.0 license.
+
+[rust]: http://rust-lang.org

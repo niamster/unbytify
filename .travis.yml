@@ -1,0 +1,46 @@
+sudo: false
+language: rust
+
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libelf-dev
+      - libdw-dev
+      - cmake
+      - gcc
+      - binutils-dev # required for the --verify flag of kcov
+
+before_script:
+  - ./scripts/build-kcov
+  - export PATH=$HOME/kcov/bin:$PATH
+
+cache:
+  - cargo
+
+rust:
+  - stable
+  - beta
+  - nightly
+
+matrix:
+  allow_failures:
+    - rust: nightly
+
+script:
+  - cargo build --all --verbose
+  - cargo test --all --verbose
+  - cargo doc --all --verbose
+
+after_success:
+  - scripts/build-kcov
+  - scripts/coverage
+  - bash <(curl -s https://codecov.io/bash) && echo "Uploaded code coverage"
+
+env:
+  global:
+    - RUST_BACKTRACE=1
+
+branches:
+  only:
+    - master

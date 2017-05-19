@@ -1,0 +1,35 @@
+#!/bin/sh
+
+coveralls=
+[ -n "$TRAVIS_JOB_ID" ] && coveralls="--coveralls-id=${TRAVIS_JOB_ID}"
+
+exclude="--exclude-pattern=.cargo,/usr/lib"
+
+PROJECT=unbytify
+OUTPUT=target/cov/${PROJECT}
+
+die() {
+    echo $*
+    exit 1
+}
+
+findexe() {
+    EXE=$(find target/debug -type f -executable -name "${PROJECT}-*" -printf '%p\n' | sort -r | head -n 1)
+    [ -z "$EXE" ] && die "Failed to find test file"
+}
+
+kcov=${HOME}/apps/kcov/bin/kcov
+if [ ! -e $kcov ]; then
+    kcov=kcov
+fi
+
+${kcov} --version >/dev/null 2>&1 || die "kcov is not installed"
+
+rm -rf $OUTPUT
+mkdir -p $OUTPUT
+
+cargo test --no-run || die
+findexe
+${kcov} $exclude --verify $OUTPUT $EXE || die
+
+echo "Check out the coverage via file://$(pwd)/${OUTPUT}/index.html"

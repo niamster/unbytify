@@ -17,7 +17,7 @@
 //! # Unbytify is a library to parse and represent digital units
 //!
 //! # Installation
-//! To start using `woodpecker` it's enough to just enable it in your `Cargo.toml`:
+//! To start using `unbytify` it's enough to just enable it in your `Cargo.toml`:
 //!
 //! ```toml
 //! [dependencies]

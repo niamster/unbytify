@@ -87,9 +87,8 @@ pub fn unbytify(value: &str) -> Result<u64, ParseError> {
         return Err(ParseError::Invalid);
     }
 
-    match value.parse::<u64>() {
-        Ok(x) => return Ok(x),
-        _ => {},
+    if let Ok(x) = value.parse::<u64>() {
+        return Ok(x);
     }
 
     for (idx, suffix) in SUFFIXES_LOWER.iter().enumerate() {

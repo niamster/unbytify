@@ -112,7 +112,7 @@ pub fn unbytify(value: &str) -> Result<u64, ParseError> {
             },
             _ => {
                 if val.ceil() as u64 != val as u64 {
-                   return Err(ParseError::Invalid);
+                    return Err(ParseError::Invalid);
                 }
             },
         };
@@ -122,7 +122,8 @@ pub fn unbytify(value: &str) -> Result<u64, ParseError> {
         }
 
         if val.ceil() as u64 == val as u64 {
-            return (val as u64).checked_mul(B_POWERS[idx])
+            return (val as u64)
+                .checked_mul(B_POWERS[idx])
                 .map_or(Err(ParseError::Overflow), |val| Ok(val));
         }
 

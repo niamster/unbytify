@@ -106,7 +106,7 @@ pub fn unbytify(value: &str) -> Result<u64, ParseError> {
 
         match res.next() {
             Some(rest) => {
-                if rest.len() > 0 && rest != "b" && rest != "ib" {
+                if !rest.is_empty() && rest != "b" && rest != "ib" {
                     return Err(ParseError::Invalid);
                 }
             },
@@ -124,7 +124,7 @@ pub fn unbytify(value: &str) -> Result<u64, ParseError> {
         if val.ceil() as u64 == val as u64 {
             return (val as u64)
                 .checked_mul(B_POWERS[idx])
-                .map_or(Err(ParseError::Overflow), |val| Ok(val));
+                .ok_or(ParseError::Overflow);
         }
 
         let val = val * B_POWERS_F[idx];

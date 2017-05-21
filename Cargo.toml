@@ -1,7 +1,7 @@
 [package]
 name = "unbytify"
 version = "0.1.1"
-authors = ["Dmytro Milinevskyi <milinevskyi@gmail.com>"]
+authors = ["Dmytro Milinevskyi <dmilinevskyi@gmail.com>"]
 description = "Convert units of digital information from string into the numeric equivalent and the other way around"
 keywords = ["bytes", "convert", "format", "parse", "humanize"]
 categories = ["value-formatting", "parsing"]

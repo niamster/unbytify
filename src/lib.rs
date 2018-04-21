@@ -63,6 +63,21 @@ pub enum ParseError {
     Overflow,
 }
 
+impl std::error::Error for ParseError {
+    fn description(&self) -> &str {
+        match *self {
+            ParseError::Invalid => "could not interpret string as byte size",
+            ParseError::Overflow => "byte size too large",
+        }
+    }
+}
+
+impl std::fmt::Display for ParseError {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{}", std::error::Error::description(self))
+    }
+}
+
 /// Converts human readable number of bytes to a byte count
 ///
 /// # Example

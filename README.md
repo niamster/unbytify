@@ -29,7 +29,7 @@ In Cargo.toml:
 
 ```toml
 [dependencies]
-unbytify = "0.1"
+unbytify = "0.2"
 ```
 
 ### Usage

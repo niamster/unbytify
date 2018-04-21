@@ -21,7 +21,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! unbytify = "0.1"
+//! unbytify = "0.2"
 //! ```
 //!
 //! A simple example should be self-explanatory:

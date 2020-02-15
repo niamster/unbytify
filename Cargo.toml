@@ -12,4 +12,4 @@ repository = "https://github.com/niamster/unbytify"
 readme = "README.md"
 
 [dependencies]
-lazy_static = "0.2"
+lazy_static = "1"
